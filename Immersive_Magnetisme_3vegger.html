@@ -2559,7 +2559,8 @@ function picker() {
 
 /* ---------- Oppstart ---------- */
 window.addEventListener("hashchange",()=>location.reload());
-const startRole=readRole();
+const wantsPicker=["velg","choose"].includes(location.hash.slice(1).toLowerCase());
+const startRole=wantsPicker?"":(readRole()||"all");
 if(!startRole) picker();
 else {
   const panorama=startRole==="all";
